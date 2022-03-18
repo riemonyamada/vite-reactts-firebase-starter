@@ -116,3 +116,13 @@ npm install --save-dev pre-commit
 ```
 
 update `package.json`
+
+### add Sentry
+
+```shell
+npm install --save @sentry/react @sentry/tracing
+npm install react-router-v6-instrumentation
+```
+
+- add `ErrorBoundary`
+- configure Sentry with env variables
