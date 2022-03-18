@@ -126,3 +126,11 @@ npm install react-router-v6-instrumentation
 
 - add `ErrorBoundary`
 - configure Sentry with env variables
+
+### add plugin to upload source map files to Sentry
+
+```shell
+npm install vite-plugin-sentry
+```
+
+- configure `vite-plugin-sentry` with env variables
