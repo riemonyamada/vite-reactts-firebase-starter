@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { RouteObject, useRoutes } from 'react-router-dom';
 import { NotFound } from '@src/pages/NotFound';
 import { Home } from '@src/pages/Home';
