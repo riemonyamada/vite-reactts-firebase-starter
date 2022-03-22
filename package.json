@@ -6,9 +6,10 @@
     "dev": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint:fix": "eslint . --ext .jsx,.js,.ts,.tsx --quiet --fix",
-    "lint:format": "prettier  --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,html,css,md,json}\" ",
-    "lint": "npm run lint:format && npm run lint:fix "
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --quiet --fix",
+    "lint:format": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,html,css,md,json}\" ",
+    "lint": "npm run lint:format && npm run lint:fix",
+    "prepare": "husky install"
   },
   "dependencies": {
     "@emotion/react": "^11.8.2",
@@ -37,13 +38,18 @@
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
-    "pre-commit": "^1.2.2",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.7",
     "prettier": "2.6.0",
     "typescript": "^4.5.4",
     "vite": "^2.8.0",
     "vite-plugin-sentry": "^1.0.13"
   },
-  "pre-commit": [
-    "lint"
-  ]
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "npm run lint:format",
+      "npm run lint:fix"
+    ],
+    "*.{html,css,md,json}": "npm run lint:format"
+  }
 }

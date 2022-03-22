@@ -134,3 +134,13 @@ npm install vite-plugin-sentry
 ```
 
 - configure `vite-plugin-sentry` with env variables
+
+### update pre commit linting strategy
+
+```shell
+npm uninstall pre-commit
+npx mrm@2 lint-staged
+```
+
+- remove `pre-commit` entry from `package.json`
+- update `lint-staged` entry in `package.json`
