@@ -129,6 +129,7 @@ npm install react-router-v6-instrumentation
 
 - add `ErrorBoundary`
 - configure Sentry with env variables
+- add hooks
 
 ### add plugin to upload source map files to Sentry
 
@@ -154,4 +155,5 @@ npx mrm@2 lint-staged
 npm install firebase
 ```
 
-- add initialization functions
+- add initialization functions with env variables
+- add hooks
