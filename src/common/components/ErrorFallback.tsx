@@ -1,20 +1,22 @@
-import { Box, Button, Typography } from '@mui/material';
+import { css } from '@emotion/react';
+import { Button, Typography } from '@mui/material';
 
+// use div instead of box: https://github.com/mui/material-ui/issues/31835
 export function ErrorFallback() {
   return (
-    <Box
-      sx={{
+    <div
+      css={css({
         height: '100vh',
         width: '100vw',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-      }}
+      })}
     >
-      <Box
-        sx={{
+      <div
+        css={css({
           textAlign: 'center',
-        }}
+        })}
       >
         <Typography variant="h3">Ooops, something went wrong :(</Typography>
         <Button
@@ -25,7 +27,7 @@ export function ErrorFallback() {
         >
           Refresh
         </Button>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
