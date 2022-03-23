@@ -3,6 +3,7 @@ import * as path from 'path';
 import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import viteSentry from 'vite-plugin-sentry';
+import { visualizer } from 'rollup-plugin-visualizer';
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -30,12 +31,18 @@ export default defineConfig(({ mode }) => {
         project: env.SENTRY_PROJECT,
         release: `${env.SENTRY_PROJECT}@${process.env.npm_package_version}`,
         deploy: {
-          env: env.MODE,
+          env: env.NODE_ENV,
         },
         setCommits: {},
         sourceMaps: {
           include: ['./dist'],
         },
+      }),
+      visualizer({
+        open: true,
+        filename: '.cache/stats.html',
+        gzipSize: true,
+        brotliSize: true,
       }),
     ],
     build: {

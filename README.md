@@ -14,6 +14,7 @@ A quick start project template powered by vite which includes below:
 - Sentry
 - Firebase
 - Jotai
+- rollup-plugin-visualizer
 
 ## Getting Started
 
@@ -157,3 +158,11 @@ npm install firebase
 
 - add initialization functions with env variables
 - add hooks
+
+### add rollup-plugin-visualizer
+
+```shell
+npm install --save-dev rollup-plugin-visualizer
+```
+
+- configure `vite.config.ts`
