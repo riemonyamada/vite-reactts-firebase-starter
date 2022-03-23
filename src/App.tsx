@@ -8,6 +8,7 @@ import { theme } from '@src/lib/theme';
 import { Loading } from '@src/common/components/Loading';
 import { AppRoutes } from '@src/routes';
 import { ErrorFallback } from '@src/common/components/ErrorFallback';
+import { useInitializeFirebase } from './lib/firebase';
 
 function AppRoutesWithSentry() {
   // https://github.com/getsentry/sentry-javascript/issues/4118
@@ -29,6 +30,8 @@ function AppRoutesWithSentry() {
 }
 
 export function App() {
+  useInitializeFirebase();
+
   return (
     <ErrorBoundary fallback={ErrorFallback}>
       <Suspense fallback={Loading()}>

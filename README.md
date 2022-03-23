@@ -1,4 +1,4 @@
-# Vite React Starter
+# Vite React Firebase Jotai Starter
 
 ## Feature
 
@@ -11,6 +11,9 @@ A quick start project template powered by vite which includes below:
 - Prettier
 - MUI
 - React Router
+- Sentry
+- Firebase
+- Jotai
 
 ## Getting Started
 
@@ -144,3 +147,11 @@ npx mrm@2 lint-staged
 
 - remove `pre-commit` entry from `package.json`
 - update `lint-staged` entry in `package.json`
+
+### add Firebase
+
+```shell
+npm install firebase
+```
+
+- add initialization functions
