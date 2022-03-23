@@ -17,7 +17,6 @@ export function useSentry() {
       integrations: [browserTracing],
       release: `${import.meta.env.VITE_PROJECT_NAME}@${APP_VERSION}`,
       environment: import.meta.env.MODE,
-      debug: import.meta.env.MODE === 'development',
     });
   }, [routingInstrumentation]);
 }
