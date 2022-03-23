@@ -50,9 +50,9 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "npm run lint:format",
-      "npm run lint:fix"
+      "prettier --write",
+      "eslint --fix"
     ],
-    "*.{html,css,md,json}": "npm run lint:format"
+    "*.{html,css,md,json}": "prettier --write"
   }
 }
