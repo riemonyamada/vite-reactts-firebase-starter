@@ -166,3 +166,9 @@ npm install --save-dev rollup-plugin-visualizer
 ```
 
 - configure `vite.config.ts`
+
+### add Jotai
+
+```shell
+npm install jotai
+```
