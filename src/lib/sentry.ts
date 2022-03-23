@@ -1,8 +1,10 @@
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { init } from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 import useRoutingInstrumentation from 'react-router-v6-instrumentation';
 
+// Note: For the useRoutingInstrumentation hook to work, it must be called from a component
+// that is nested inside your BrowserRouter(or MemoryRouter) component
 export function useSentry() {
   // https://github.com/getsentry/sentry-javascript/issues/4118
   const routingInstrumentation = useRoutingInstrumentation();
@@ -18,4 +20,13 @@ export function useSentry() {
       debug: import.meta.env.MODE === 'development',
     });
   }, [routingInstrumentation]);
+}
+
+type SentryRootProps = {
+  children: ReactElement;
+};
+
+export function SentryRoot({ children }: SentryRootProps) {
+  useSentry();
+  return children;
 }

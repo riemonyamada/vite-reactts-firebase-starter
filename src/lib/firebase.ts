@@ -1,6 +1,6 @@
+import { ReactElement, useEffect } from 'react';
 import { FirebaseApp, initializeApp } from 'firebase/app';
 import { AppCheck, initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-import { useEffect } from 'react';
 
 function createInitializationFunction() {
   let app: FirebaseApp;
@@ -73,4 +73,13 @@ export function useInitializeFirebase() {
   useEffect(() => {
     Promise.all([initializeFirebasePerformance(), initializeFirebaseAnalytics()]);
   }, [initializeFirebasePerformance, initializeFirebaseAnalytics]);
+}
+
+type FirebaseRootProps = {
+  children: ReactElement;
+};
+
+export function FirebaseRoot({ children }: FirebaseRootProps) {
+  useInitializeFirebase();
+  return children;
 }

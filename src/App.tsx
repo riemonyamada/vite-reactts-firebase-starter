@@ -1,32 +1,25 @@
-import { Suspense } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { ErrorBoundary } from '@sentry/react';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '@src/lib/theme';
-import { Loading } from '@src/common/components/Loading';
 import { AppRoutes } from '@src/routes';
 import { ErrorFallback } from '@src/common/components/ErrorFallback';
-import { useInitializeFirebase } from './lib/firebase';
-import { useSentry } from './lib/sentry';
-
-function AppRoutesWithLibs() {
-  useSentry();
-  useInitializeFirebase();
-
-  return <AppRoutes />;
-}
+import { FirebaseRoot } from '@src/lib/firebase';
+import { SentryRoot } from '@src/lib/sentry';
 
 export function App() {
   return (
     <ErrorBoundary fallback={ErrorFallback}>
-      <Suspense fallback={Loading()}>
+      <FirebaseRoot>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <BrowserRouter>
-            <AppRoutesWithLibs />
+            <SentryRoot>
+              <AppRoutes />
+            </SentryRoot>
           </BrowserRouter>
         </ThemeProvider>
-      </Suspense>
+      </FirebaseRoot>
     </ErrorBoundary>
   );
 }
