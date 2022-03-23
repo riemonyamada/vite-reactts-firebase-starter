@@ -33,7 +33,7 @@ function createInitializationFunction() {
       window.self.FIREBASE_APPCHECK_DEBUG_TOKEN = import.meta.env.VITE_FB_APPCHECK_DEBUG_TOKEN || true;
     }
     appCheck = initializeAppCheck(app, {
-      provider: new ReCaptchaV3Provider('abcdefghijklmnopqrstuvwxy-1234567890abcd'),
+      provider: new ReCaptchaV3Provider(import.meta.env.VITE_FB_RECAPTCHA_SITE_KEY),
       isTokenAutoRefreshEnabled: true,
     });
     return appCheck;
