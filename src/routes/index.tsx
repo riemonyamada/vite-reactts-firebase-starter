@@ -1,17 +1,25 @@
-import { RouteObject, useRoutes } from 'react-router-dom';
-import { NotFound } from '@src/pages/NotFound';
-import { Home } from '@src/pages/Home';
+import { Suspense } from 'react';
+import { useRoutes } from 'react-router-dom';
+import { Loading } from '@src/common/components/Loading';
+import { useAuthUser } from '@src/common/hooks/useAuth';
+import { Common } from '@src/pages/Common';
+import { protectedRoutes } from './protected';
+import { publicRoutes } from './public';
 
-export function AppRoutes() {
-  const routes: RouteObject[] = [
-    {
-      path: '/',
-      element: <Home />,
-    },
-    { path: '*', element: <NotFound /> },
-  ];
+function RoutesWithAuth() {
+  const authUser = useAuthUser();
 
-  const element = useRoutes([...routes]);
+  const commonRoutes = [{ path: '/common', element: <Common /> }];
+  const routes = authUser ? protectedRoutes : publicRoutes;
+  const element = useRoutes([...routes, ...commonRoutes]);
 
   return element;
+}
+
+export function AppRoutes() {
+  return (
+    <Suspense fallback={Loading()}>
+      <RoutesWithAuth />
+    </Suspense>
+  );
 }

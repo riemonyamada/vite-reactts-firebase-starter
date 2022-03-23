@@ -172,3 +172,10 @@ npm install --save-dev rollup-plugin-visualizer
 ```shell
 npm install jotai
 ```
+
+### add authentication and router guard
+
+- add `useAuth` for authentication
+- add `SignIn`,`SingOut`,`ProtectedLayout` components
+- add router guard based on the auth state
+- add some extra components for demonstration
