@@ -27,13 +27,13 @@ function RoutesWithAuth() {
 
 export function AppRoutes() {
   const appNotificationComponent = useAppNotificationComponent({
-    stackDirection: 'top',
+    stackDirection: 'bottom',
     max: 10,
     space: 10,
     snackbarOption: {
       open: true,
       autoHideDuration: 6000,
-      anchorOrigin: { vertical: 'bottom', horizontal: 'right' },
+      anchorOrigin: { vertical: 'top', horizontal: 'right' },
     },
   });
 

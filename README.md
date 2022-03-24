@@ -198,3 +198,14 @@ firebase init
 ```
 
 - follow the guide
+
+### add pwa plugin
+
+```shell
+npm i vite-plugin-pwa -D
+```
+
+- add assets
+- add manifest and other options to `vite.config.ts`
+- update `index.html`
+- create `ReloadPrompt` component and inject it to `App`
