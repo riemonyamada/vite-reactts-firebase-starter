@@ -4,8 +4,8 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import { theme } from '@src/lib/theme';
 import { AppRoutes } from '@src/routes';
 import { ErrorFallback } from '@src/common/components/ErrorFallback';
-import { FirebaseRoot } from '@src/lib/firebase';
-import { SentryRoot } from '@src/lib/sentry';
+import { FirebaseRoot } from '@src/common/components/FirebaseRoot';
+import { SentryRoot } from '@src/common/components/SentryRoot';
 
 export function App() {
   return (

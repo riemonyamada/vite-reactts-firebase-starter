@@ -1,4 +1,4 @@
-import { ReactElement, useEffect } from 'react';
+import { useEffect } from 'react';
 import { init } from '@sentry/react';
 import { BrowserTracing } from '@sentry/tracing';
 import useRoutingInstrumentation from 'react-router-v6-instrumentation';
@@ -19,13 +19,4 @@ export function useSentry() {
       environment: import.meta.env.MODE,
     });
   }, [routingInstrumentation]);
-}
-
-type SentryRootProps = {
-  children: ReactElement;
-};
-
-export function SentryRoot({ children }: SentryRootProps) {
-  useSentry();
-  return children;
 }
