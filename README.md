@@ -190,3 +190,11 @@ npm install --save @types/uuid
 - add `useAppNotification` hooks and `StackedSnackbar` component
 - update `AppRoutes` to include `StackedSnackbar`
 - update displays for auth errors
+
+### init firebase
+
+```shell
+firebase init
+```
+
+- follow the guide
