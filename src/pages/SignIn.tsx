@@ -1,13 +1,16 @@
+import { useEffect } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 import {
-  Alert, Avatar, TextField, Link, Grid, Box, Typography, Container,
+  Avatar, TextField, Link, Grid, Box, Typography, Container,
 } from '@mui/material';
 import { LoadingButton } from '@mui/lab';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { useSignIn } from '@src/common/hooks/useAuth';
+import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
 
 export function SignIn() {
   const { signIn, loading, error } = useSignIn();
+  const addAppNotification = useAddAppNotification();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -16,6 +19,12 @@ export function SignIn() {
     const password = data.get('password') as string;
     await signIn(email, password);
   };
+
+  useEffect(() => {
+    if (error && error.message) {
+      addAppNotification({ message: error.message, severity: 'error' });
+    }
+  }, [error, addAppNotification]);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -35,8 +44,6 @@ export function SignIn() {
         </Typography>
 
         <Box component="form" onSubmit={handleSubmit} noValidate sx={{ mt: 1 }}>
-          {error && <Alert severity="error">{error.message}</Alert>}
-
           <TextField
             margin="normal"
             required

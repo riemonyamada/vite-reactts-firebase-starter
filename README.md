@@ -179,3 +179,14 @@ npm install jotai
 - add `SignIn`,`SingOut`,`ProtectedLayout` components
 - add router guard based on the auth state
 - add some extra components for demonstration
+
+### add stacked notifications snackbar
+
+```shell
+npm install uuid
+npm install --save @types/uuid
+```
+
+- add `useAppNotification` hooks and `StackedSnackbar` component
+- update `AppRoutes` to include `StackedSnackbar`
+- update displays for auth errors

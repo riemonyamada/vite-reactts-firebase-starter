@@ -48,6 +48,7 @@ authUserState.onMount = (setAtom) => {
 
   return () => {
     unsubscribe();
+    setAtom(null);
   };
 };
 
@@ -67,8 +68,8 @@ export function useSignIn() {
     const auth = getAuth();
     return signInWithEmailAndPassword(auth, email, password)
       .catch((e) => {
-        // TODO: エラー処理
-        setError(e instanceof Error ? e : Error('SignIn Error: Unecpected Error'));
+        // TODO: create human readable messages based on error code
+        setError(e instanceof Error ? e : Error('SignIn Error: Unexpected Error'));
       })
       .finally(() => {
         setLoading(false);
@@ -93,8 +94,8 @@ export function useSignOut() {
     const auth = getAuth();
     return _signOut(auth)
       .catch((e) => {
-        // TODO: エラー処理
-        setError(e instanceof Error ? e : Error('SignOut Error: Unecpected Error'));
+        // TODO: create human readable messages based on error code
+        setError(e instanceof Error ? e : Error('SignOut Error: Unexpected Error'));
       })
       .finally(() => {
         setLoading(false);

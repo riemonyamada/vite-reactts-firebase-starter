@@ -1,13 +1,22 @@
+import { useEffect } from 'react';
 import { LoadingButton } from '@mui/lab';
 import {
   AppBar, Box, Toolbar, Typography,
 } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { useAuthUser, useSignOut } from '@src/common/hooks/useAuth';
+import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
 
 export function ProtectedLayout() {
   const authUser = useAuthUser();
-  const { signOut, loading } = useSignOut();
+  const { signOut, loading, error } = useSignOut();
+  const addAppNotification = useAddAppNotification();
+
+  useEffect(() => {
+    if (error && error.message) {
+      addAppNotification({ message: error.message, severity: 'error' });
+    }
+  }, [error, addAppNotification]);
 
   return (
     <>
