@@ -6,20 +6,23 @@ import { AppRoutes } from '@src/routes';
 import { ErrorFallback } from '@src/common/components/ErrorFallback';
 import { FirebaseRoot } from '@src/common/components/FirebaseRoot';
 import { SentryRoot } from '@src/common/components/SentryRoot';
+import { Provider } from 'jotai';
 
 export function App() {
   return (
     <ErrorBoundary fallback={ErrorFallback}>
-      <FirebaseRoot>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          <BrowserRouter>
-            <SentryRoot>
-              <AppRoutes />
-            </SentryRoot>
-          </BrowserRouter>
-        </ThemeProvider>
-      </FirebaseRoot>
+      <Provider>
+        <FirebaseRoot>
+          <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <BrowserRouter>
+              <SentryRoot>
+                <AppRoutes />
+              </SentryRoot>
+            </BrowserRouter>
+          </ThemeProvider>
+        </FirebaseRoot>
+      </Provider>
     </ErrorBoundary>
   );
 }
