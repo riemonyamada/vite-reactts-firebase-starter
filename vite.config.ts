@@ -58,8 +58,8 @@ export default defineConfig(({ mode }) => {
       viteSentry({
         authToken: env.SENTRY_AUTH_TOKEN,
         org: env.SENTRY_ORG,
-        project: env.SENTRY_PROJECT,
-        release: `${env.SENTRY_PROJECT}@${process.env.npm_package_version}`,
+        project: env.VITE_SENTRY_PROJECT,
+        release: `${env.VITE_SENTRY_PROJECT}@${process.env.npm_package_version}`,
         deploy: {
           env: env.NODE_ENV,
         },

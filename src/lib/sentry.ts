@@ -11,7 +11,7 @@ export function initSentry(routingInstrumentation: ReactRouterInstrumentation) {
   init({
     dsn: import.meta.env.VITE_SENTRY_DSN,
     integrations: [browserTracing],
-    release: `${import.meta.env.VITE_PROJECT_NAME}@${APP_VERSION}`,
+    release: `${import.meta.env.VITE_SENTRY_PROJECT}@${APP_VERSION}`,
     environment: import.meta.env.MODE,
   });
 }

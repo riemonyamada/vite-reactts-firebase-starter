@@ -3,6 +3,7 @@
 declare const APP_VERSION: string;
 interface ImportMetaEnv {
   readonly VITE_PROJECT_NAME: string;
+  readonly VITE_SENTRY_PROJECT: string;
   readonly VITE_SENTRY_DSN: string;
   readonly VITE_FB_API_KEY: string;
   readonly VITE_FB_PROJECT_ID: string;
