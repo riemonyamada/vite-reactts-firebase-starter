@@ -13,7 +13,7 @@ module.exports = {
     sourceType: 'module',
     project: ['./tsconfig.json', './tsconfig.node.json'],
   },
-  ignorePatterns: ['/dist/*'],
+  ignorePatterns: ['/dist/'],
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'react/react-in-jsx-scope': 'off',
