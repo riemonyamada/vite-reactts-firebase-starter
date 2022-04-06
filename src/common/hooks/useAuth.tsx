@@ -1,9 +1,5 @@
-import {
-  getAuth,
-  onAuthStateChanged,
-  signInWithEmailAndPassword,
-  signOut as _signOut,
-} from 'firebase/auth';
+import { getAppAuth } from '@src/lib/firebase';
+import { onAuthStateChanged, signInWithEmailAndPassword, signOut as _signOut } from 'firebase/auth';
 import { atom } from 'jotai';
 import { useAtomValue } from 'jotai/utils';
 import { useState } from 'react';
@@ -21,7 +17,7 @@ authUserState.onMount = (setAtom) => {
   });
   setAtom(initialValue);
 
-  const auth = getAuth();
+  const auth = getAppAuth();
   const unsubscribe = onAuthStateChanged(
     auth,
     (user) => {
@@ -65,7 +61,7 @@ export function useSignIn() {
     setError(null);
     setLoading(true);
 
-    const auth = getAuth();
+    const auth = getAppAuth();
     return signInWithEmailAndPassword(auth, email, password)
       .catch((e) => {
         // TODO: create human readable messages based on error code
@@ -91,7 +87,7 @@ export function useSignOut() {
     setError(null);
     setLoading(true);
 
-    const auth = getAuth();
+    const auth = getAppAuth();
     return _signOut(auth)
       .catch((e) => {
         // TODO: create human readable messages based on error code

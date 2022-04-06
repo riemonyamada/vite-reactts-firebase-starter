@@ -2,9 +2,7 @@ import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
 import type { AppCheck } from 'firebase/app-check';
 import { initializeApp } from 'firebase/app';
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-
-let app: FirebaseApp;
-let appCheck: AppCheck;
+import { getAuth, connectAuthEmulator, Auth } from 'firebase/auth';
 
 const projectId = import.meta.env.VITE_FB_PROJECT_ID;
 const firebaseOptions: FirebaseOptions = {
@@ -20,6 +18,7 @@ const firebaseOptions: FirebaseOptions = {
 const firebaseAppCheckDebugToken = import.meta.env.VITE_FB_APPCHECK_DEBUG_TOKEN || true;
 const reCaptchaSiteKey = import.meta.env.VITE_FB_RECAPTCHA_SITE_KEY;
 
+let app: FirebaseApp;
 export function initializeFirebaseApp() {
   if (app) {
     return app;
@@ -28,7 +27,11 @@ export function initializeFirebaseApp() {
   return app;
 }
 
+let appCheck: AppCheck;
 export function initializeFirebaseAppCheck() {
+  if (import.meta.env.MODE === 'emulators') {
+    return null;
+  }
   if (appCheck) {
     return appCheck;
   }
@@ -44,11 +47,32 @@ export function initializeFirebaseAppCheck() {
 }
 
 export async function initializeFirebasePerformance() {
+  if (import.meta.env.MODE === 'emulators') {
+    return null;
+  }
   const { initializePerformance } = await import('firebase/performance');
-  initializePerformance(app);
+  return initializePerformance(app);
 }
 
 export async function initializeFirebaseAnalytics() {
+  if (import.meta.env.MODE === 'emulators') {
+    return null;
+  }
   const { getAnalytics } = await import('firebase/analytics');
   return getAnalytics();
+}
+
+let auth: Auth;
+export function getAppAuth() {
+  if (auth) {
+    return auth;
+  }
+  auth = getAuth();
+
+  if (import.meta.env.MODE === 'emulators') {
+    // eslint-disable-next-line no-console
+    console.log('connect auth emulator!');
+    connectAuthEmulator(auth, 'http://localhost:9099');
+  }
+  return auth;
 }
