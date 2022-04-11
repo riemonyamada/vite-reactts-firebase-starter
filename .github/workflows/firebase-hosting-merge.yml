@@ -4,11 +4,9 @@
 name: Deploy to Firebase Hosting on merge
 'on':
   workflow_dispatch:
-  push:
-    branches:
-      - main
 jobs:
   build_and_deploy:
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
