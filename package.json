@@ -11,6 +11,7 @@
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --quiet --fix",
     "lint:format": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,html,css,md,json}\" ",
     "lint": "npm run lint:format && npm run lint:fix",
+    "extract:translations": "i18next 'src/**/*'",
     "prepare": "husky install"
   },
   "dependencies": {
@@ -23,9 +24,12 @@
     "@sentry/tracing": "^6.18.2",
     "@types/uuid": "^8.3.4",
     "firebase": "^9.6.9",
+    "i18next": "^21.6.16",
+    "i18next-browser-languagedetector": "^6.1.4",
     "jotai": "^1.6.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-i18next": "^11.16.5",
     "react-router-dom": "^6.2.2",
     "react-router-v6-instrumentation": "^2.0.1",
     "uuid": "^8.3.2"
@@ -45,6 +49,7 @@
     "eslint-plugin-react": "^7.29.4",
     "eslint-plugin-react-hooks": "^4.3.0",
     "husky": "^7.0.4",
+    "i18next-parser": "^6.3.0",
     "lint-staged": "^12.3.7",
     "prettier": "2.6.0",
     "rollup-plugin-visualizer": "^5.6.0",

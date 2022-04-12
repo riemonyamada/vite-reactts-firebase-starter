@@ -213,3 +213,15 @@ npm i vite-plugin-pwa -D
 ### add firebase emulators
 
 - update firebase config
+
+### add i18next
+
+```
+npm install react-i18next i18next
+npm install i18next-browser-languagedetector
+npm install --save-dev i18next-parser
+```
+
+- add an i18next initialize function and types
+- add a npm script and `i18next-parser.config.js` to extract translations
+- update translations files

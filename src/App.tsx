@@ -8,6 +8,9 @@ import { ErrorFallback } from '@src/common/components/ErrorFallback';
 import { FirebaseRoot } from '@src/common/components/FirebaseRoot';
 import { SentryRoot } from '@src/common/components/SentryRoot';
 import { ReloadPrompt } from '@src/common/components/ReloadPrompt';
+import { initializeI18n } from '@src/lib/i18n';
+
+initializeI18n();
 
 export function App() {
   return (
