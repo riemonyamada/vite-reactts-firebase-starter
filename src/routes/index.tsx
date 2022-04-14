@@ -1,7 +1,7 @@
 import { Suspense, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
 import { Loading } from '@src/common/components/Loading';
-import { useAuthUser } from '@src/common/hooks/useAuth';
+import { useAuthUser } from '@src/common/hooks/useAuthUser';
 import { Common } from '@src/pages/Common';
 import {
   useAppNotificationComponent,

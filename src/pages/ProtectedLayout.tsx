@@ -1,47 +1,60 @@
-import { useEffect } from 'react';
-import { LoadingButton } from '@mui/lab';
 import {
-  AppBar, Box, Toolbar, Typography,
+  AppBar, Box, Paper, Toolbar, Typography,
 } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { useAuthUser, useSignOut } from '@src/common/hooks/useAuth';
-import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
+import { AccountMenu } from '@src/common/components/AccountMenue';
 
 export function ProtectedLayout() {
-  const authUser = useAuthUser();
-  const { signOut, loading, error } = useSignOut();
-  const addAppNotification = useAddAppNotification();
-
-  useEffect(() => {
-    if (error && error.message) {
-      addAppNotification({ message: error.message, severity: 'error' });
-    }
-  }, [error, addAppNotification]);
-
   return (
-    <>
-      <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
-          <Toolbar>
-            <Typography
-              variant="h6"
-              component="div"
-              sx={{
-                flexGrow: 1,
-                whiteSpace: 'nowrap',
-                overflow: 'hidden',
-                textOverflow: 'ellipsis',
-              }}
-            >
-              {authUser?.email ?? 'empty user'}
-            </Typography>
-            <LoadingButton color="inherit" onClick={signOut} loading={loading} variant="outlined">
-              SignOut
-            </LoadingButton>
-          </Toolbar>
-        </AppBar>
+    <Box
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+        overflow: 'hidden',
+      }}
+    >
+      <AppBar position="fixed" elevation={1}>
+        <Toolbar>
+          <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              flexGrow: 1,
+              whiteSpace: 'nowrap',
+              overflow: 'hidden',
+              textOverflow: 'ellipsis',
+            }}
+          >
+            @riemonyamada
+          </Typography>
+
+          <AccountMenu />
+        </Toolbar>
+      </AppBar>
+
+      <Toolbar />
+
+      <Box
+        component="main"
+        sx={{
+          flexGrow: 1,
+          overflowY: 'scroll',
+          paddingBottom: 7,
+        }}
+      >
+        <Outlet />
       </Box>
-      <Outlet />
-    </>
+
+      <Paper
+        elevation={1}
+        sx={{
+          position: 'fixed',
+          bottom: 0,
+          left: 0,
+          right: 0,
+        }}
+      />
+    </Box>
   );
 }

@@ -19,5 +19,11 @@ module.exports = {
     'react/react-in-jsx-scope': 'off',
     'import/prefer-default-export': 'off',
     'import/no-default-export': 'error',
+    'react/jsx-props-no-spreading': [
+      'error',
+      {
+        exceptions: ['TextField'],
+      },
+    ],
   },
 };
