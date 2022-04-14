@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, Global } from '@emotion/react';
 import { Button, Typography } from '@mui/material';
 
 // use div instead of box: https://github.com/mui/material-ui/issues/31835
@@ -6,13 +6,25 @@ export function ErrorFallback() {
   return (
     <div
       css={css({
-        height: '100vh',
-        width: '100vw',
+        height: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
       })}
     >
+      <Global
+        styles={{
+          html: {
+            height: '100%',
+          },
+          body: {
+            height: '100%',
+          },
+          '#root': {
+            height: '100%',
+          },
+        }}
+      />
       <div
         css={css({
           textAlign: 'center',
