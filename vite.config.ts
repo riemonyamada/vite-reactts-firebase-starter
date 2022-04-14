@@ -69,7 +69,6 @@ export default defineConfig(({ mode }) => {
         },
       }),
       visualizer({
-        open: true,
         filename: '.cache/stats.html',
         gzipSize: true,
         brotliSize: true,
