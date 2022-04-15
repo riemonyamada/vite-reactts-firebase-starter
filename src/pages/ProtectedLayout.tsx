@@ -7,8 +7,7 @@ export function ProtectedLayout() {
     <Box
       sx={{
         display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
+        minHeight: '100%',
         overflow: 'hidden',
       }}
     >
