@@ -1,8 +1,6 @@
-import {
-  AppBar, Box, Paper, Toolbar, Typography,
-} from '@mui/material';
+import { Box, Paper, Toolbar } from '@mui/material';
 import { Outlet } from 'react-router-dom';
-import { AccountMenu } from '@src/common/components/AccountMenue';
+import { AppHeader } from '@src/common/components/AppHeader';
 
 export function ProtectedLayout() {
   return (
@@ -14,24 +12,7 @@ export function ProtectedLayout() {
         overflow: 'hidden',
       }}
     >
-      <AppBar position="fixed" elevation={1}>
-        <Toolbar>
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              whiteSpace: 'nowrap',
-              overflow: 'hidden',
-              textOverflow: 'ellipsis',
-            }}
-          >
-            @riemonyamada
-          </Typography>
-
-          <AccountMenu />
-        </Toolbar>
-      </AppBar>
+      <AppHeader />
 
       <Toolbar />
 
