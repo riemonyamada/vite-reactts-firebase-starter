@@ -4,6 +4,7 @@ import { defineConfig, loadEnv } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
 import viteSentry from 'vite-plugin-sentry';
+import reactRefresh from '@vitejs/plugin-react-refresh';
 import jotaiDebugLabel from 'jotai/babel/plugin-debug-label';
 import jotaiReactRefresh from 'jotai/babel/plugin-react-refresh';
 import { visualizer } from 'rollup-plugin-visualizer';
@@ -25,6 +26,7 @@ export default defineConfig(({ mode }) => {
       ],
     },
     plugins: [
+      reactRefresh(),
       react({
         jsxImportSource: '@emotion/react',
         babel: { plugins: [jotaiDebugLabel, jotaiReactRefresh] },
@@ -69,7 +71,6 @@ export default defineConfig(({ mode }) => {
         },
       }),
       visualizer({
-        open: true,
         filename: '.cache/stats.html',
         gzipSize: true,
         brotliSize: true,

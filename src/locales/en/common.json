@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "required": "required",
+    "signout": "sing out"
+  },
+  "home": {
+    "welcome": "welcome to the home!"
+  },
+  "layout": {
+    "darkmode": "dark mode"
+  }
+}

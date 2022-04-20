@@ -1,0 +1,12 @@
+{
+  "auth": {
+    "required": "必須です",
+    "signout": "サインアウト"
+  },
+  "home": {
+    "welcome": "ホームページにようこそ！"
+  },
+  "layout": {
+    "darkmode": "ダークモード"
+  }
+}

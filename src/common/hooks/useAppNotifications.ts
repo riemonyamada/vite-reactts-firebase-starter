@@ -1,5 +1,5 @@
 import { useCallback, useEffect } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+import { nanoid } from 'nanoid';
 import type {
   AppNotification as AppNotificationWithUid,
   Option,
@@ -44,7 +44,7 @@ export function useAddAppNotification() {
     ({ message, severity }: AppNotification) => {
       setNotifications((previousNotifications) => {
         const newNotification: AppNotificationWithUid = {
-          uid: uuidv4(),
+          uid: nanoid(),
           message,
           severity,
         };

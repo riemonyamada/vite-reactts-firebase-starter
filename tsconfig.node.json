@@ -4,5 +4,5 @@
     "module": "esnext",
     "moduleResolution": "node"
   },
-  "include": ["vite.config.ts", ".eslintrc.js"]
+  "include": ["vite.config.ts", ".eslintrc.js", ".prettierrc.js", "i18next-parser.config.js"]
 }
