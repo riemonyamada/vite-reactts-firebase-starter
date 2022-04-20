@@ -183,8 +183,7 @@ npm install jotai
 ### add stacked notifications snackbar
 
 ```shell
-npm install uuid
-npm install --save @types/uuid
+npm i nanoid
 ```
 
 - add `useAppNotification` hooks and `StackedSnackbar` component
@@ -225,3 +224,20 @@ npm install --save-dev i18next-parser
 - add an i18next initialize function and types
 - add a npm script and `i18next-parser.config.js` to extract translations
 - update translations files
+
+### add react-hook-form
+
+```
+npm install react-hook-form
+```
+
+- update `SigninForm.tsx`
+
+### update to React18
+
+```
+npm install react@18 react-dom@18
+npm install --save-dev @types/react@18 @types/react-dom@18
+```
+
+- update `main.tsx`
