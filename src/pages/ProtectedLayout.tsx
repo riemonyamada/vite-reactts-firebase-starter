@@ -1,26 +1,28 @@
-import { Box, Paper, Toolbar } from '@mui/material';
+import { Box, Paper, useTheme } from '@mui/material';
 import { Outlet } from 'react-router-dom';
 import { AppHeader } from '@src/common/components/AppHeader';
 
 export function ProtectedLayout() {
+  const theme = useTheme();
   return (
     <Box
       sx={{
         display: 'flex',
         minHeight: '100%',
-        overflow: 'hidden',
       }}
     >
       <AppHeader />
-
-      <Toolbar />
 
       <Box
         component="main"
         sx={{
           flexGrow: 1,
           overflowY: 'scroll',
-          paddingBottom: 7,
+          padding: 2,
+          paddingTop: 9,
+          [theme.breakpoints.up('sm')]: {
+            paddingTop: 10,
+          },
         }}
       >
         <Outlet />
