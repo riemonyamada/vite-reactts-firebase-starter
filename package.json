@@ -6,11 +6,11 @@
     "dev": "vite",
     "dev:emulators": "vite --mode emulators",
     "emulators:start": "firebase emulators:start --project demo-project",
-    "build": "vite build",
+    "build": "tsc && vite build",
     "preview": "vite preview",
     "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --quiet --fix",
     "lint:format": "prettier --loglevel warn --write \"./**/*.{js,jsx,ts,tsx,html,css,md,json}\" ",
-    "lint": "npm run lint:format && npm run lint:fix",
+    "lint": "npm run lint:fix && npm run lint:format",
     "extract:translations": "i18next 'src/**/*'",
     "prepare": "husky install"
   },
@@ -45,6 +45,7 @@
     "eslint": "^8.11.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",
     "eslint-plugin-react": "^7.29.4",
@@ -60,9 +61,12 @@
     "vite-plugin-sentry": "^1.0.13"
   },
   "lint-staged": {
+    "*.{ts,tsx}": [
+      "bash -c tsc"
+    ],
     "*.{js,jsx,ts,tsx}": [
-      "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "*.{html,css,md,json}": "prettier --write"
   }
