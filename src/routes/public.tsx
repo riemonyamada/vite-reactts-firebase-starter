@@ -1,4 +1,6 @@
-import { Navigate, RouteObject } from 'react-router-dom';
+import type { RouteObject } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
+
 import { SignIn } from '@src/pages/SignIn';
 
 function NavigateToSignIn() {

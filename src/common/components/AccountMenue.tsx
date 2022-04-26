@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import {
-  Avatar, Divider, Fade, IconButton, Menu, MenuItem,
-} from '@mui/material';
-import { useTranslation } from 'react-i18next';
+
 import PersonIcon from '@mui/icons-material/Person';
+import { Avatar, Divider, IconButton, Menu, MenuItem } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+
+import { ThemeSwitch } from '@src/common/components/ThemeSwitch';
 import { useAuthUser } from '@src/common/hooks/useAuthUser';
 import { SignOutMenuItem } from '@src/features/auth/components/SignOutMenuItem';
-import { ThemeSwitch } from '@src/common/components/ThemeSwitch';
 
 export function AccountMenu() {
   const { t } = useTranslation('common');
@@ -44,9 +44,6 @@ export function AccountMenu() {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}
-        // to avoid blink on ios safari
-        // TODO: watch (https://github.com/mui/material-ui/issues/31380)
-        TransitionComponent={Fade}
       >
         <MenuItem>{authUser?.email ?? 'empty user'}</MenuItem>
         <Divider />

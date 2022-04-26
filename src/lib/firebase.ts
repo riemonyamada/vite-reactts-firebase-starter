@@ -1,8 +1,10 @@
-import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
-import type { AppCheck } from 'firebase/app-check';
 import { initializeApp } from 'firebase/app';
 import { initializeAppCheck, ReCaptchaV3Provider } from 'firebase/app-check';
-import { getAuth, connectAuthEmulator, Auth } from 'firebase/auth';
+import { getAuth, connectAuthEmulator } from 'firebase/auth';
+
+import type { FirebaseApp, FirebaseOptions } from 'firebase/app';
+import type { AppCheck } from 'firebase/app-check';
+import type { Auth } from 'firebase/auth';
 
 const projectId = import.meta.env.VITE_FB_PROJECT_ID;
 const firebaseOptions: FirebaseOptions = {

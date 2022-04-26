@@ -1,6 +1,7 @@
+import { useState } from 'react';
+
 import { FirebaseError } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
 
 export function useSignIn() {
   const [loading, setLoading] = useState<boolean>(false);

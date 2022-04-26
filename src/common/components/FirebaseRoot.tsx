@@ -1,4 +1,6 @@
-import { ReactElement, useEffect } from 'react';
+import type { ReactElement } from 'react';
+import { useEffect } from 'react';
+
 import {
   initializeFirebaseApp,
   initializeFirebaseAppCheck,
@@ -11,7 +13,7 @@ function useInitializeFirebase() {
   initializeFirebaseAppCheck();
 
   useEffect(() => {
-    Promise.all([initializeFirebasePerformance(), initializeFirebaseAnalytics()]);
+    void Promise.all([initializeFirebasePerformance(), initializeFirebaseAnalytics()]);
   }, []);
 }
 

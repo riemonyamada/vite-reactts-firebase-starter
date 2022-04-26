@@ -1,6 +1,5 @@
 declare module 'virtual:pwa-register/react' {
-  // @ts-ignore ignore when react is not installed
-  import { Dispatch, SetStateAction } from 'react';
+  import type { Dispatch, SetStateAction } from 'react';
 
   export type RegisterSWOptions = {
     immediate?: boolean;

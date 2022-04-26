@@ -1,5 +1,5 @@
-import { useRegisterSW } from 'virtual:pwa-register/react';
 import { Alert, Button, Snackbar } from '@mui/material';
+import { useRegisterSW } from 'virtual:pwa-register/react';
 
 export function ReloadPrompt() {
   const {
@@ -7,7 +7,7 @@ export function ReloadPrompt() {
     updateServiceWorker,
   } = useRegisterSW({});
 
-  const handleClose = (event: React.SyntheticEvent | Event, reason: string) => {
+  const handleClose = (_event: React.SyntheticEvent | Event, reason: string) => {
     if (reason === 'clickaway' || reason === 'escapeKeyDown') {
       return;
     }
@@ -23,9 +23,15 @@ export function ReloadPrompt() {
     >
       <Alert
         severity="info"
-        action={(
+        action={
           <>
-            <Button color="inherit" size="small" onClick={() => updateServiceWorker(true)}>
+            <Button
+              color="inherit"
+              size="small"
+              onClick={() => {
+                void updateServiceWorker(true);
+              }}
+            >
               Update
             </Button>
             <Button
@@ -38,7 +44,7 @@ export function ReloadPrompt() {
               Close
             </Button>
           </>
-        )}
+        }
       >
         A new version is coming!
       </Alert>

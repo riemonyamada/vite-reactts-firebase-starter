@@ -1,5 +1,8 @@
-import { Alert, Snackbar, SnackbarProps } from '@mui/material';
 import { useState } from 'react';
+
+import { Alert, Snackbar } from '@mui/material';
+
+import type { SnackbarProps } from '@mui/material';
 
 export type AppNotification = {
   uid: string;
@@ -32,7 +35,7 @@ export function StackedSnackbar({ option, notifications, onClose }: StackedSnack
   const [snackbarHeights, setSnackbarHeights] = useState<Map<string, number>>(new Map());
 
   const handleClose = (
-    event: React.SyntheticEvent | Event,
+    _event: React.SyntheticEvent | Event,
     reason: string,
     notification: AppNotification,
   ) => {
@@ -51,22 +54,25 @@ export function StackedSnackbar({ option, notifications, onClose }: StackedSnack
           ref={(ref: HTMLInputElement | null) => {
             if (!snackbarHeights.has(notification.uid) && ref && ref.clientHeight > 0) {
               // eslint-disable-next-line max-len
-              setSnackbarHeights((previousSnackbarHeights) => new Map(previousSnackbarHeights).set(notification.uid, ref.clientHeight));
+              setSnackbarHeights((previousSnackbarHeights) =>
+                new Map(previousSnackbarHeights).set(notification.uid, ref.clientHeight),
+              );
             }
           }}
           sx={{
             transform: `translateY(${(() => {
               const sign = option.stackDirection === 'top' ? -1 : 1;
-              const shift = notifications
-                .filter((notificationInLoop, indexInLoop) => {
-                  const snackbarHeight = snackbarHeights.get(notificationInLoop.uid);
-                  return snackbarHeight && indexInLoop < notificationIndex;
-                })
-                .reduce((acc, notificationInLoop) => {
-                  const snackbarHeight = snackbarHeights.get(notificationInLoop.uid);
-                  const diff = snackbarHeight ?? 0;
-                  return acc + diff + (option.space || 0);
-                }, 0) || 0;
+              const shift =
+                notifications
+                  .filter((notificationInLoop, indexInLoop) => {
+                    const snackbarHeight = snackbarHeights.get(notificationInLoop.uid);
+                    return snackbarHeight && indexInLoop < notificationIndex;
+                  })
+                  .reduce((acc, notificationInLoop) => {
+                    const snackbarHeight = snackbarHeights.get(notificationInLoop.uid);
+                    const diff = snackbarHeight ?? 0;
+                    return acc + diff + (option.space || 0);
+                  }, 0) || 0;
 
               return sign * shift;
             })()}px)`,

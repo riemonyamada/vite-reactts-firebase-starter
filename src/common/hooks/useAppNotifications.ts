@@ -1,13 +1,13 @@
 import { useCallback, useEffect } from 'react';
+
+import { atom, useAtom, useAtomValue, useSetAtom } from 'jotai';
 import { nanoid } from 'nanoid';
+
 import type {
   AppNotification as AppNotificationWithUid,
   Option,
 } from '@src/common/components/StackedSnackbar';
 import { StackedSnackbar } from '@src/common/components/StackedSnackbar';
-import {
-  atom, useAtom, useAtomValue, useSetAtom,
-} from 'jotai';
 
 const appNotificationOptionAtom = atom<Option | null>(null);
 const appNotificationsAtom = atom<AppNotificationWithUid[]>([]);
@@ -23,7 +23,9 @@ export function useAppNotificationComponent(option: Option) {
   const handleClose = useCallback(
     (notification: AppNotificationWithUid) => {
       // eslint-disable-next-line max-len
-      setNotifications((previousNotifications) => previousNotifications.filter(({ uid }) => uid !== notification.uid));
+      setNotifications((previousNotifications) =>
+        previousNotifications.filter(({ uid }) => uid !== notification.uid),
+      );
     },
     [setNotifications],
   );

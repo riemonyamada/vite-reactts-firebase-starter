@@ -1,7 +1,12 @@
 import { useEffect } from 'react';
-import { MenuItem, MenuItemProps } from '@mui/material';
+
+import { MenuItem } from '@mui/material';
+
 import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
+
 import { useSignOut } from '../hooks/useSignOut';
+
+import type { MenuItemProps } from '@mui/material';
 
 type SignOutMenuItemProps = Omit<MenuItemProps, 'onClick'>;
 
@@ -17,7 +22,7 @@ export function SignOutMenuItem(props: SignOutMenuItemProps) {
 
   const handleClick = (e: React.MouseEvent<HTMLElement, MouseEvent>) => {
     e.preventDefault();
-    signOut();
+    void signOut();
   };
 
   // eslint-disable-next-line react/jsx-props-no-spreading

@@ -1,10 +1,16 @@
-import { useEffect } from 'react';
-import { TextField, Box, BoxProps } from '@mui/material';
+import React, { useEffect } from 'react';
+
 import { LoadingButton } from '@mui/lab';
-import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { TextField, Box } from '@mui/material';
+import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+
+import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
+
 import { useSignIn } from '../hooks/useSignIn';
+
+import type { BoxProps } from '@mui/material';
+import type { SubmitHandler } from 'react-hook-form';
 
 type Inputs = {
   email: string;
@@ -36,7 +42,13 @@ export function SignInForm(props: BoxProps) {
   return (
     // eslint-disable-next-line react/jsx-props-no-spreading
     <Box {...props}>
-      <Box component="form" onSubmit={handleSubmit(onSubmit)} noValidate>
+      <Box
+        component="form"
+        onSubmit={(event: React.SyntheticEvent) => {
+          void handleSubmit(onSubmit)(event);
+        }}
+        noValidate
+      >
         <TextField
           margin="normal"
           fullWidth

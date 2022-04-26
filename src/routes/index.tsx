@@ -1,12 +1,14 @@
 import { Suspense, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
+
 import { Loading } from '@src/common/components/Loading';
-import { useAuthUser } from '@src/common/hooks/useAuthUser';
-import { Common } from '@src/pages/Common';
 import {
   useAppNotificationComponent,
   useResetAppNotifications,
 } from '@src/common/hooks/useAppNotifications';
+import { useAuthUser } from '@src/common/hooks/useAuthUser';
+import { Common } from '@src/pages/Common';
+
 import { protectedRoutes } from './protected';
 import { publicRoutes } from './public';
 

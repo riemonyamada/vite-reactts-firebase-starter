@@ -1,5 +1,6 @@
 import { FormControlLabel, FormGroup, Switch } from '@mui/material';
 import { useTranslation } from 'react-i18next';
+
 import { useColorMode, useToggleColorMode } from '../hooks/useColorMode';
 
 export function ThemeSwitch() {

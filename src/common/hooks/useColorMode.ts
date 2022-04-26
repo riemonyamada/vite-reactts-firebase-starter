@@ -1,6 +1,7 @@
+import { useCallback } from 'react';
+
 import { useSetAtom } from 'jotai';
 import { atomWithStorage, useAtomValue } from 'jotai/utils';
-import { useCallback } from 'react';
 
 const colorModeAtom = atomWithStorage<'light' | 'dark'>('darkMode', 'dark');
 

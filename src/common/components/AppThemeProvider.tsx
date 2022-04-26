@@ -1,7 +1,10 @@
-import { ReactNode } from 'react';
-import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
-import { lightModePaletteOptions, darkModePaletteOptions } from '@src/lib/theme';
+import type { ReactNode } from 'react';
+
 import { Global } from '@emotion/react';
+import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
+
+import { lightModePaletteOptions, darkModePaletteOptions } from '@src/lib/theme';
+
 import { useColorMode } from '../hooks/useColorMode';
 
 type AppThemeProviderProps = {

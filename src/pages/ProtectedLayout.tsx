@@ -1,5 +1,7 @@
-import { Box, Paper, useTheme } from '@mui/material';
 import { Outlet } from 'react-router-dom';
+
+import { Box, Paper, useTheme } from '@mui/material';
+
 import { AppHeader } from '@src/common/components/AppHeader';
 
 export function ProtectedLayout() {

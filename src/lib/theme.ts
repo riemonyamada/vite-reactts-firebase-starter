@@ -1,5 +1,5 @@
-import { PaletteOptions } from '@mui/material';
-import type {} from '@mui/lab/themeAugmentation';
+import type { PaletteOptions } from '@mui/material';
+// import type {} from '@mui/lab/themeAugmentation';
 
 export const lightModePaletteOptions: PaletteOptions = {
   primary: {

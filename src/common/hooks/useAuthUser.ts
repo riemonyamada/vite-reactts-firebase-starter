@@ -2,14 +2,14 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { atom } from 'jotai';
 import { useAtomValue } from 'jotai/utils';
 
-import { AuthUser } from '../types';
+import type { AuthUser } from '../types';
 
 type AuthUserOrNull = AuthUser | null;
 
 export const authUserAtom = atom<Promise<AuthUserOrNull> | AuthUserOrNull>(null);
 
 authUserAtom.onMount = (setAtom) => {
-  const initialValue = new Promise<AuthUserOrNull>((resolve, reject) => {
+  const initialValue = new Promise<AuthUserOrNull>((_resolve, reject) => {
     setTimeout(() => {
       reject(new Error('Authentication Error: Authentication Timeout'));
     }, 10 * 1000);
@@ -21,9 +21,7 @@ authUserAtom.onMount = (setAtom) => {
     auth,
     (user) => {
       if (user) {
-        const {
-          uid, email, displayName, metadata,
-        } = user;
+        const { uid, email, displayName, metadata } = user;
         const authUser = {
           uid,
           email,

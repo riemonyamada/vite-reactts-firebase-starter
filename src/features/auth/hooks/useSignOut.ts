@@ -1,5 +1,6 @@
-import { getAuth, signOut as _signOut } from 'firebase/auth';
 import { useState } from 'react';
+
+import { getAuth, signOut as _signOut } from 'firebase/auth';
 
 export function useSignOut() {
   const [loading, setLoading] = useState<boolean>(false);
