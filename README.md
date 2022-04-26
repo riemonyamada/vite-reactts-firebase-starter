@@ -113,19 +113,10 @@ npm install react-router-dom@6
 
 - update App.tsx and sample pages using router
 
-### add pre-commit
-
-```shell
-npm install --save-dev pre-commit
-```
-
-update `package.json`
-
 ### add Sentry
 
 ```shell
 npm install --save @sentry/react @sentry/tracing
-npm install react-router-v6-instrumentation
 ```
 
 - add `ErrorBoundary`
@@ -140,14 +131,12 @@ npm install vite-plugin-sentry
 
 - configure `vite-plugin-sentry` with env variables
 
-### update pre commit linting strategy
+### add pre commit linting
 
 ```shell
-npm uninstall pre-commit
 npx mrm@2 lint-staged
 ```
 
-- remove `pre-commit` entry from `package.json`
 - update `lint-staged` entry in `package.json`
 
 ### add Firebase
