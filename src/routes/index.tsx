@@ -2,11 +2,9 @@ import { Suspense, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
 
 import { Loading } from '@src/common/components/Loading';
-import {
-  useAppNotificationComponent,
-  useResetAppNotifications,
-} from '@src/common/hooks/useAppNotifications';
 import { useAuthUser } from '@src/common/hooks/useAuthUser';
+import { AppNotificationSnackbars } from '@src/features/appNotifications/components/AppNotificationSnackbars';
+import { useResetAppNotifications } from '@src/features/appNotifications/hooks/useAppNotifications';
 import { Common } from '@src/pages/Common';
 
 import { protectedRoutes } from './protected';
@@ -28,21 +26,21 @@ function RoutesWithAuth() {
 }
 
 export function AppRoutes() {
-  const appNotificationComponent = useAppNotificationComponent({
-    stackDirection: 'bottom',
-    max: 10,
-    space: 10,
-    snackbarOption: {
-      open: true,
-      autoHideDuration: 6000,
-      anchorOrigin: { vertical: 'top', horizontal: 'right' },
-    },
-  });
-
   return (
     <Suspense fallback={Loading()}>
       <RoutesWithAuth />
-      {appNotificationComponent()}
+      <AppNotificationSnackbars
+        option={{
+          stackDirection: 'bottom',
+          max: 10,
+          space: 10,
+          snackbarOption: {
+            open: true,
+            autoHideDuration: 6000,
+            anchorOrigin: { vertical: 'top', horizontal: 'right' },
+          },
+        }}
+      />
     </Suspense>
   );
 }

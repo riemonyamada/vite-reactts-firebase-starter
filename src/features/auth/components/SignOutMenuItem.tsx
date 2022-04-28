@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 
 import { MenuItem } from '@mui/material';
 
-import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
+import { useAddAppNotification } from '@src/features/appNotifications/hooks/useAppNotifications';
 
 import { useSignOut } from '../hooks/useSignOut';
 

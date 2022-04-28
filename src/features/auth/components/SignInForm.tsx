@@ -5,7 +5,7 @@ import { TextField, Box } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 
-import { useAddAppNotification } from '@src/common/hooks/useAppNotifications';
+import { useAddAppNotification } from '@src/features/appNotifications/hooks/useAppNotifications';
 
 import { useSignIn } from '../hooks/useSignIn';
 
