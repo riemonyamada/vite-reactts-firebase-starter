@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { getAuth, signOut as _signOut } from 'firebase/auth';
 
@@ -6,7 +6,7 @@ export function useSignOut() {
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<Error | null>(null);
 
-  const signOut = () => {
+  const signOut = useCallback(() => {
     setError(null);
     setLoading(true);
 
@@ -18,7 +18,7 @@ export function useSignOut() {
       .finally(() => {
         setLoading(false);
       });
-  };
+  }, []);
 
   return {
     signOut,

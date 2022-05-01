@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 
 import { FirebaseError } from 'firebase/app';
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
@@ -8,7 +8,7 @@ export function useSignIn() {
   const [error, setError] = useState<Error | null>(null);
 
   // eslint-disable-next-line max-len
-  const signIn = (email: string, password: string) => {
+  const signIn = useCallback((email: string, password: string) => {
     setError(null);
     setLoading(true);
 
@@ -35,7 +35,7 @@ export function useSignIn() {
       .finally(() => {
         setLoading(false);
       });
-  };
+  }, []);
 
   return {
     signIn,
