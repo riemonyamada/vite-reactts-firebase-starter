@@ -101,9 +101,13 @@ npm install @mui/lab
 npm install react-router-dom@6
 ```
 
-### update noUncheckedIndexedAccess on tsconfig
+### update tsconfig
 
-- add `"noUncheckedIndexedAccess": true` to tsconfig
+```shell
+npm install --save-dev @tsconfig/strictest
+```
+
+- add `"extends": "@tsconfig/strictest/tsconfig.json"` to tsconfig
 
 ### configure alias
 
