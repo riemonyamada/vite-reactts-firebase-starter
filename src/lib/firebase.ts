@@ -37,7 +37,7 @@ export function initializeFirebaseAppCheck() {
   if (appCheck) {
     return appCheck;
   }
-  if (process.env['NODE_ENV'] === 'development') {
+  if (process.env.NODE_ENV === 'development') {
     // eslint-disable-next-line max-len
     window.self.FIREBASE_APPCHECK_DEBUG_TOKEN = firebaseAppCheckDebugToken;
   }
