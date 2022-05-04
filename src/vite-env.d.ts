@@ -17,3 +17,9 @@ interface ImportMetaEnv {
 interface Window {
   FIREBASE_APPCHECK_DEBUG_TOKEN?: string | boolean;
 }
+
+declare namespace NodeJS {
+  interface ProcessEnv {
+    readonly NODE_ENV: 'development' | 'production';
+  }
+}
