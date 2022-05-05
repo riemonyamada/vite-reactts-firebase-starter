@@ -1,6 +1,8 @@
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged } from 'firebase/auth';
 import { atom } from 'jotai';
 import { useAtomValue } from 'jotai/utils';
+
+import { getAppAuth } from '@src/lib/firebase';
 
 import type { AuthUser } from '../types';
 
@@ -16,7 +18,7 @@ authUserAtom.onMount = (setAtom) => {
   });
   setAtom(initialValue);
 
-  const auth = getAuth();
+  const auth = getAppAuth();
   const unsubscribe = onAuthStateChanged(
     auth,
     (user) => {
