@@ -14,11 +14,36 @@ A quick start project template powered by vite which includes below:
 - Sentry
 - Firebase
 - Jotai
-- rollup-plugin-visualizer
+- i18next
 
 ## Getting Started
 
-Clone the repo and `npm install`
+- Clone the repo and `npm install`
+- Create `.env.development.local` and `.env.production.local` based on `.env.mode.local.sample`
+
+### Sentry
+
+- Create a Sentry project
+- Add some information to .env file
+
+### Firebase
+
+- Create a firebase project
+- Create a web app in the project
+- Enable mail password authentication via firebase console
+- Add user via firebase console
+- Add some information to .env file
+- Init firebase
+  - At least enable hosting, emulators and github actions
+
+### App Check
+
+- Follow this instruction
+  https://firebase.google.com/docs/app-check/web/recaptcha-provider
+
+### GitHub Actions
+
+- Update `projectId` and `firebaseServiceAccount` in GitHub Actions files
 
 ## How to create this starter
 
