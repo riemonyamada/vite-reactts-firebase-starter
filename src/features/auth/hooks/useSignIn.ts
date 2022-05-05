@@ -1,7 +1,9 @@
 import { useCallback, useState } from 'react';
 
 import { FirebaseError } from 'firebase/app';
-import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+
+import { getAppAuth } from '@src/lib/firebase';
 
 export function useSignIn() {
   const [loading, setLoading] = useState<boolean>(false);
@@ -12,7 +14,7 @@ export function useSignIn() {
     setError(null);
     setLoading(true);
 
-    const auth = getAuth();
+    const auth = getAppAuth();
     return signInWithEmailAndPassword(auth, email, password)
       .catch((e: unknown) => {
         let message;
