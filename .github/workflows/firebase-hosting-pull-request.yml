@@ -26,5 +26,5 @@ jobs:
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_TEST_HOTEKAN }}'
-          projectId: test-hotekan
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_VITE_REACTTS_STARTER }}'
+          projectId: vite-reactts-starter
