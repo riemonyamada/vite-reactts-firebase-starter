@@ -15,6 +15,11 @@ export const resources = {
   ja: { common: jaCommon, auth: jaAuth },
 } as const;
 
+export const languageOptions = [
+  { displayName: 'English', id: 'en' },
+  { displayName: '日本語', id: 'ja' },
+];
+
 export function initializeI18n() {
   return (
     i18n
