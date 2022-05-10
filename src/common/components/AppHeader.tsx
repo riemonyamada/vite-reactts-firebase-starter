@@ -19,7 +19,7 @@ import {
   useTheme,
 } from '@mui/material';
 
-import { AccountMenu } from '@src/common/components/AccountMenue';
+import { AccountMenu } from '@src/common/components/AccountMenu';
 
 import type { CSSObject } from '@emotion/react';
 import type { Theme, AppBarProps, DrawerProps } from '@mui/material';
