@@ -37,12 +37,20 @@ export function AccountMenu() {
         </Avatar>
       </IconButton>
       <Menu
-        id="basic-menu"
+        id="account-menu"
         anchorEl={anchorEl}
         open={open}
         onClose={handleClose}
         MenuListProps={{
-          'aria-labelledby': 'basic-button',
+          'aria-labelledby': 'account-button',
+        }}
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'right',
+        }}
+        transformOrigin={{
+          vertical: 'top',
+          horizontal: 'right',
         }}
       >
         <MenuItem>{authUser?.email ?? 'empty user'}</MenuItem>

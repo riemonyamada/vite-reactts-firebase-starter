@@ -19,7 +19,9 @@ import {
   useTheme,
 } from '@mui/material';
 
-import { AccountMenu } from '@src/common/components/AccountMenue';
+import { AccountMenu } from '@src/common/components/AccountMenu';
+
+import { LanguageMenu } from './LanguageMenu';
 
 import type { CSSObject } from '@emotion/react';
 import type { Theme, AppBarProps, DrawerProps } from '@mui/material';
@@ -146,6 +148,7 @@ export function AppHeader() {
             @riemonyamada
           </Typography>
 
+          <LanguageMenu />
           <AccountMenu />
         </Toolbar>
       </MyAppBar>
