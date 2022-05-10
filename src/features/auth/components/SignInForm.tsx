@@ -18,7 +18,7 @@ type Inputs = {
 };
 
 export function SignInForm(props: BoxProps) {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('auth');
 
   const { signIn, loading, error } = useSignIn();
   const addAppNotification = useAddAppNotification();
@@ -56,7 +56,7 @@ export function SignInForm(props: BoxProps) {
           autoComplete="email"
           autoFocus
           {...register('email', {
-            required: { value: true, message: t('auth.required') },
+            required: { value: true, message: t('signInForm.emailRequired') },
           })}
           helperText={errors.email?.message}
           error={!!errors.email}
@@ -69,7 +69,7 @@ export function SignInForm(props: BoxProps) {
           type="password"
           autoComplete="current-password"
           {...register('password', {
-            required: { value: true, message: t('auth.required') },
+            required: { value: true, message: t('signInForm.passwordRequired') },
           })}
           helperText={errors.password?.message}
           error={!!errors.password}
@@ -82,7 +82,7 @@ export function SignInForm(props: BoxProps) {
           sx={{ mt: 3, mb: 3 }}
           loading={loading}
         >
-          SignIn
+          {t('signInForm.signIn')}
         </LoadingButton>
       </Box>
     </Box>

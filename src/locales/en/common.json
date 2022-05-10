@@ -1,12 +1,20 @@
 {
-  "auth": {
-    "required": "required",
-    "signout": "sing out"
+  "errorFallback": {
+    "message": "Oops, something went wrong :(",
+    "refresh": "Refresh"
   },
   "home": {
     "welcome": "welcome to the home!"
   },
   "layout": {
-    "darkmode": "dark mode"
+    "darkMode": "dark mode"
+  },
+  "notFound": {
+    "message": "Oops, the requested URL was not found :("
+  },
+  "reloadPrompt": {
+    "close": "Close",
+    "message": "A new version is coming!",
+    "update": "Update"
   }
 }

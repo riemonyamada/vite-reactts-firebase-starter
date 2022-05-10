@@ -1,6 +1,9 @@
 import { Box, Typography } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 
 export function NotFound() {
+  const { t } = useTranslation('common');
+
   return (
     <Box
       sx={{
@@ -15,7 +18,7 @@ export function NotFound() {
           textAlign: 'center',
         }}
       >
-        <Typography variant="h3">Ooops, the requested URL was not found :(</Typography>
+        <Typography variant="h3">{t('notFound.message')}</Typography>
       </Box>
     </Box>
   );

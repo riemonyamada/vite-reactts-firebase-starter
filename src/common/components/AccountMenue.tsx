@@ -9,7 +9,7 @@ import { useAuthUser } from '@src/common/hooks/useAuthUser';
 import { SignOutMenuItem } from '@src/features/auth/components/SignOutMenuItem';
 
 export function AccountMenu() {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation('auth');
 
   const authUser = useAuthUser();
 
@@ -47,7 +47,7 @@ export function AccountMenu() {
       >
         <MenuItem>{authUser?.email ?? 'empty user'}</MenuItem>
         <Divider />
-        <SignOutMenuItem sx={{ width: 200 }}>{t('auth.signout')}</SignOutMenuItem>
+        <SignOutMenuItem sx={{ width: 200 }}>{t('accountMenu.signOut')}</SignOutMenuItem>
         <MenuItem>
           <ThemeSwitch />
         </MenuItem>
