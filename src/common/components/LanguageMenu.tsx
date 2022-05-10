@@ -35,6 +35,7 @@ export function LanguageMenu() {
       <Button
         id="language-button"
         onClick={handleClick}
+        color="inherit"
         variant="outlined"
         endIcon={<ArrowDropDownIcon />}
         aria-controls={open ? 'language-menu' : undefined}
