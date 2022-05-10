@@ -2,15 +2,17 @@ import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
-import enCcommon from '../locales/en/common.json';
-import jaCcommon from '../locales/ja/common.json';
+import enAuth from '../locales/en/auth.json';
+import enCommon from '../locales/en/common.json';
+import jaAuth from '../locales/ja/auth.json';
+import jaCommon from '../locales/ja/common.json';
 
 // TODO: parse https://github.com/i18next/i18next-parser
 
 export const defaultNS = 'common';
 export const resources = {
-  en: { common: enCcommon },
-  ja: { common: jaCcommon },
+  en: { common: enCommon, auth: enAuth },
+  ja: { common: jaCommon, auth: jaAuth },
 } as const;
 
 export function initializeI18n() {
@@ -26,7 +28,7 @@ export function initializeI18n() {
         resources,
         fallbackLng: 'en',
         load: 'languageOnly',
-        ns: ['common'],
+        ns: ['common', 'auth'],
         defaultNS,
         debug: process.env.NODE_ENV === 'development',
         interpolation: {

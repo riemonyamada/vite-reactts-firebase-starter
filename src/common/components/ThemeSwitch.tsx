@@ -17,7 +17,7 @@ export function ThemeSwitch() {
     <FormGroup>
       <FormControlLabel
         control={<Switch checked={colorMode === 'dark'} onChange={handleChange} />}
-        label={t('layout.darkmode')}
+        label={t('layout.darkMode')}
       />
     </FormGroup>
   );

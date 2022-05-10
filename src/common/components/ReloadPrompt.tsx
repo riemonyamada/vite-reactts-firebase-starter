@@ -1,7 +1,10 @@
 import { Alert, Button, Snackbar } from '@mui/material';
+import { useTranslation } from 'react-i18next';
 import { useRegisterSW } from 'virtual:pwa-register/react';
 
 export function ReloadPrompt() {
+  const { t } = useTranslation('common');
+
   const {
     needRefresh: [needRefresh, setNeedRefresh],
     updateServiceWorker,
@@ -32,7 +35,7 @@ export function ReloadPrompt() {
                 void updateServiceWorker(true);
               }}
             >
-              Update
+              {t('reloadPrompt.update')}
             </Button>
             <Button
               color="inherit"
@@ -41,12 +44,12 @@ export function ReloadPrompt() {
                 handleClose(e, 'clickClose');
               }}
             >
-              Close
+              {t('reloadPrompt.close')}
             </Button>
           </>
         }
       >
-        A new version is coming!
+        {t('reloadPrompt.message')}
       </Alert>
     </Snackbar>
   );
