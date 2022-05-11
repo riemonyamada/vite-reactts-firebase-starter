@@ -1,14 +1,29 @@
 import { Suspense, useEffect } from 'react';
 import { useRoutes } from 'react-router-dom';
 
-import { Loading } from '@src/common/components/Loading';
+import { Box, CircularProgress } from '@mui/material';
+
 import { useAuthUser } from '@src/common/hooks/useAuthUser';
 import { AppNotificationSnackbars } from '@src/features/appNotifications/components/AppNotificationSnackbars';
 import { useResetAppNotifications } from '@src/features/appNotifications/hooks/useAppNotifications';
-import { Common } from '@src/pages/Common';
 
 import { protectedRoutes } from './protected';
 import { publicRoutes } from './public';
+
+function Loading() {
+  return (
+    <Box
+      sx={{
+        minHeight: ['100vh', '100dvh'],
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+      }}
+    >
+      <CircularProgress />
+    </Box>
+  );
+}
 
 function RoutesWithAuth() {
   const authUser = useAuthUser();
@@ -18,9 +33,8 @@ function RoutesWithAuth() {
     resetAppNotifications();
   }, [authUser, resetAppNotifications]);
 
-  const commonRoutes = [{ path: '/common', element: <Common /> }];
   const routes = authUser ? protectedRoutes : publicRoutes;
-  const element = useRoutes([...routes, ...commonRoutes]);
+  const element = useRoutes(routes);
 
   return element;
 }

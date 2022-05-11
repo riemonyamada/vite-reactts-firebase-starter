@@ -1,9 +1,12 @@
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
-import { Home } from '@src/pages/Home';
-import { NotFound } from '@src/pages/NotFound';
 import { ProtectedLayout } from '@src/pages/ProtectedLayout';
+import { lazyImport } from '@src/utils/lazyImport';
+
+const Home = lazyImport(() => import('@src/pages/Home'), 'Home');
+const Common = lazyImport(() => import('@src/pages/Common'), 'Common');
+const NotFound = lazyImport(() => import('@src/pages/NotFound'), 'NotFound');
 
 function NavigateToOriginalPath() {
   const originalPath = new URLSearchParams(window.location.search).get('redirect');
@@ -19,6 +22,7 @@ export const protectedRoutes: RouteObject[] = [
         path: '/',
         element: <Home />,
       },
+      { path: '/common', element: <Common /> },
       {
         path: '/signin/*',
         element: <NavigateToOriginalPath />,

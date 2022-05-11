@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
+import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import HideSourceIcon from '@mui/icons-material/HideSource';
 import HomeIcon from '@mui/icons-material/Home';
@@ -28,7 +29,10 @@ import type { Theme, AppBarProps, DrawerProps } from '@mui/material';
 
 const upperNavs = [{ label: 'Home', to: '/', icon: <HomeIcon /> }];
 
-const lowerNavs = [{ label: 'NotFound', to: '/not-found', icon: <HideSourceIcon /> }];
+const lowerNavs = [
+  { label: 'Common', to: '/common', icon: <AirportShuttleIcon /> },
+  { label: 'NotFound', to: '/not-found', icon: <HideSourceIcon /> },
+];
 
 const drawerWidth = 240;
 
