@@ -90,6 +90,14 @@ export default defineConfig(({ mode }) => {
       }),
     ],
     build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['react', 'react-router-dom', 'react-dom'],
+            sentry: ['@sentry/react', '@sentry/tracing'],
+          },
+        },
+      },
       sourcemap: 'hidden',
     },
   };
