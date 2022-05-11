@@ -16,7 +16,7 @@ void initializeI18n();
 
 export function App() {
   return (
-    <ErrorBoundary fallback={ErrorFallback}>
+    <ErrorBoundary fallback={ErrorFallback()}>
       <Provider>
         <FirebaseRoot>
           <AppThemeProvider>

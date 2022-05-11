@@ -1,4 +1,4 @@
-import { css, Global } from '@emotion/react';
+import { css } from '@emotion/react';
 import { Button, Typography } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 
@@ -9,25 +9,12 @@ export function ErrorFallback() {
   return (
     <div
       css={css({
-        height: '100%',
+        minHeight: ['100vh', '100dvh'],
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
       })}
     >
-      <Global
-        styles={{
-          html: {
-            height: '100%',
-          },
-          body: {
-            height: '100%',
-          },
-          '#root': {
-            height: '100%',
-          },
-        }}
-      />
       <div
         css={css({
           textAlign: 'center',

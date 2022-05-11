@@ -8,7 +8,7 @@ export function SignIn() {
       component="main"
       maxWidth="xs"
       sx={{
-        height: '100%',
+        minHeight: '100%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

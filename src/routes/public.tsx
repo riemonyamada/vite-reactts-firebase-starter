@@ -1,7 +1,11 @@
 import type { RouteObject } from 'react-router-dom';
 import { Navigate } from 'react-router-dom';
 
-import { SignIn } from '@src/pages/SignIn';
+import { PublicLayout } from '@src/pages/PublicLayout';
+import { lazyImport } from '@src/utils/lazyImport';
+
+const SignIn = lazyImport(() => import('@src/pages/SignIn'), 'SignIn');
+const Common = lazyImport(() => import('@src/pages/Common'), 'Common');
 
 function NavigateToSignIn() {
   const originalPath = window.location.pathname + window.location.search;
@@ -12,8 +16,14 @@ function NavigateToSignIn() {
 
 export const publicRoutes: RouteObject[] = [
   {
-    path: '/signin/*',
-    element: <SignIn />,
+    element: <PublicLayout />,
+    children: [
+      {
+        path: '/signin/*',
+        element: <SignIn />,
+      },
+      { path: '/common', element: <Common /> },
+      { path: '*', element: <NavigateToSignIn /> },
+    ],
   },
-  { path: '*', element: <NavigateToSignIn /> },
 ];
