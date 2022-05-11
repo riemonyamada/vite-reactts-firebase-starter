@@ -4,7 +4,7 @@ export function Loading() {
   return (
     <Box
       sx={{
-        height: '100%',
+        minHeight: '100%',
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',

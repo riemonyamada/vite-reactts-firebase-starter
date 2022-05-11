@@ -1,6 +1,5 @@
 import type { ReactNode } from 'react';
 
-import { Global } from '@emotion/react';
 import { CssBaseline, ThemeProvider, createTheme } from '@mui/material';
 
 import { lightModePaletteOptions, darkModePaletteOptions } from '@src/lib/theme';
@@ -54,19 +53,6 @@ export function AppThemeProvider({ children }: AppThemeProviderProps) {
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
-      <Global
-        styles={{
-          html: {
-            minHeight: ['100vh', '100dvh'],
-          },
-          body: {
-            minHeight: ['100vh', '100dvh'],
-          },
-          '#root': {
-            minHeight: ['100vh', '100dvh'],
-          },
-        }}
-      />
       {children}
     </ThemeProvider>
   );
