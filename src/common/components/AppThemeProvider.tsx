@@ -57,13 +57,13 @@ export function AppThemeProvider({ children }: AppThemeProviderProps) {
       <Global
         styles={{
           html: {
-            height: '100%',
+            minHeight: ['100vh', '100dvh'],
           },
           body: {
-            height: '100%',
+            minHeight: ['100vh', '100dvh'],
           },
           '#root': {
-            height: '100%',
+            minHeight: ['100vh', '100dvh'],
           },
         }}
       />

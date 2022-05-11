@@ -10,7 +10,7 @@ export function ProtectedLayout() {
     <Box
       sx={{
         display: 'flex',
-        minHeight: '100%',
+        minHeight: ['100vh', '100dvh'],
       }}
     >
       <AppHeader />
