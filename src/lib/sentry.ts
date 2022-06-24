@@ -1,17 +1,31 @@
-import { init } from '@sentry/react';
-import { BrowserTracing } from '@sentry/tracing';
+import { useEffect } from 'react';
+import {
+  useLocation,
+  useNavigationType,
+  createRoutesFromChildren,
+  matchRoutes,
+} from 'react-router-dom';
 
-import type { ReactRouterInstrumentation } from '@sentry/react/dist/types';
+import { init, reactRouterV6Instrumentation } from '@sentry/react';
+import { BrowserTracing } from '@sentry/tracing';
 
 // Note: For the useRoutingInstrumentation hook to work, it must be called from a component
 // that is nested inside your BrowserRouter(or MemoryRouter) component
-export function initSentry(routingInstrumentation?: ReactRouterInstrumentation) {
-  const browserTracing = new BrowserTracing(
-    routingInstrumentation ? { routingInstrumentation } : undefined,
-  );
+export function initSentry() {
   init({
     dsn: import.meta.env.VITE_SENTRY_DSN,
-    integrations: [browserTracing],
+    integrations: [
+      new BrowserTracing({
+        routingInstrumentation: reactRouterV6Instrumentation(
+          useEffect,
+          useLocation,
+          useNavigationType,
+          createRoutesFromChildren,
+          matchRoutes,
+        ),
+      }),
+    ],
+    tracesSampleRate: 1.0,
     release: `${import.meta.env.VITE_SENTRY_PROJECT}@${APP_VERSION}`,
     environment: import.meta.env.MODE,
   });
