@@ -2,7 +2,7 @@
   "name": "vite-reactts-firebase-starter",
   "private": true,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 0.0.0.0",
     "dev:emulators": "vite --mode emulators",
     "emulators:start": "firebase emulators:start --project demo-project",
     "build": "tsc && vite build",
