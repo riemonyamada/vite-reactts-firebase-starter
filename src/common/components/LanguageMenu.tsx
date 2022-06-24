@@ -41,6 +41,7 @@ export function LanguageMenu() {
         aria-controls={open ? 'language-menu' : undefined}
         aria-haspopup="listbox"
         aria-expanded={open ? 'true' : undefined}
+        sx={{ whiteSpace: 'nowrap' }}
       >
         {resolvedLanguageOption?.displayName}
       </Button>
