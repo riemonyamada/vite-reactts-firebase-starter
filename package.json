@@ -29,7 +29,7 @@
     "nanoid": "^4.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "react-hook-form": "^7.29.0",
+    "react-hook-form": "^7.33.1",
     "react-i18next": "^11.17.3",
     "react-router-dom": "^6.2.2"
   },
