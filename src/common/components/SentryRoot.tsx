@@ -11,8 +11,10 @@ type SentryRootProps = {
 };
 
 // TODO: now can't use with useRoutes
+// https://github.com/getsentry/sentry-javascript/issues/5338
 // https://github.com/getsentry/sentry-javascript/issues/4118#issuecomment-1160930728
 // https://github.com/getsentry/sentry-javascript/pull/5042#issuecomment-1160642403
+
 // const SentryRoutes = withSentryReactRouterV6Routing(Routes);
 
 export function SentryRoot({ children }: SentryRootProps) {
